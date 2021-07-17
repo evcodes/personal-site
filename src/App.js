@@ -1,13 +1,14 @@
-import React from 'react'
-import Nav from './components/navigation'
+import React from "react";
+import Amplify from 'aws-amplify';
+import awsExports from "./aws-exports";
+import Nav from "./components/navigation";
 import "./App.css";
 
-function App() {
+Amplify.configure(awsExports)
+export default function App() {
   return (
     <div className="App">
-      <Nav/>
+      <Nav />
     </div>
   );
 }
-
-export default App;
