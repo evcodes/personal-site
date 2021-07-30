@@ -1,5 +1,6 @@
 type Post @model {
   id: ID!
+  category: String!
   title: String!
   body: String
 }

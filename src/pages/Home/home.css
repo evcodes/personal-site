@@ -1,0 +1,31 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center!important;
+    padding: 20px;
+    text-align: center;
+    background-color: #ddd;
+}
+
+.landing-text-container {
+    width: 62%;
+    text-align: left;
+    padding-left: 10%;
+}
+
+.paragraph-text {
+    font-size: 14pt!important;
+}
+
+.ant-typography code {
+    background-color: #bbb!important;
+    color: #005ae2!important;
+}
+
+@media only screen and (max-width: 900px) {
+    .landing-text-container {
+        width: 100%;
+        text-align: center;
+        padding: 0!important;
+    }
+}

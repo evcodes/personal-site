@@ -18,7 +18,7 @@ export default function Nav() {
   const [selectedroute, setSelectedRoute] = useState("home");
 
   return (
-    <div>
+    <div >
       <Router>
         <Menu
           onClick={(e) => {
@@ -28,6 +28,7 @@ export default function Nav() {
           defaultActiveFirst={selectedroute}
           mode="horizontal"
           className="navigation"
+          theme = "dark"
         >
           <Menu.Item key="home" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
@@ -45,7 +46,7 @@ export default function Nav() {
           </Menu.Item>
         </Menu>
 
-        <RouteSwitcher />
+        <RouteSwitcher/>
       </Router>
     </div>
   );
