@@ -54,8 +54,8 @@ export default function Home() {
       <div className="landing-text-container">
         <Paragraph className="paragraph-text">
           Hello, and thanks for stopping by! My name is Eddy and I am a
-          <Text code>software engineer</Text>. Currently, I work for Amazon Web
-          Services (AWS) with the awesome{" "}
+          <Text code>software engineer</Text>. 
+          Currently, I work for Amazon Web Services (AWS) with the awesome{" "}
           <a href="https://docs.amplify.aws" target="_blank">
             Amplify team.{" "}
           </a>
@@ -63,7 +63,7 @@ export default function Home() {
           with any questions!
         </Paragraph>
 
-        <Button href="/contact" type="primary">
+      <Button href="/contact" type="primary">
           Contact me
         </Button>
       </div>

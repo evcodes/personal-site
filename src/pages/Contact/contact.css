@@ -1,7 +1,7 @@
 .contact-form-container {
-    width: 53%!important;
+    width: 53% !important;
     /* background-color: red; */
-    margin: auto!important;
+    margin-left: 10%!important;
     text-align: center;
     display: flex;
     flex-direction: column;
