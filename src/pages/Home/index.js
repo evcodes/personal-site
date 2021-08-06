@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {Link} from 'react-router-dom'
+
 //styling
 import { Button, Typography} from "antd";
 import "./home.css";
@@ -59,9 +61,11 @@ export default function Home() {
           This website is still under construction.
         </Paragraph>
 
-      <Button href="/contact" type="primary">
+<Link to = "/contact">
+      <Button type="primary">
           Contact me
         </Button>
+        </Link>
       </div>
     </div>
   );
