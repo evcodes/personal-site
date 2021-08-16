@@ -11,11 +11,11 @@ import {
   FormOutlined,
 } from "@ant-design/icons";
 import "./blog-nav.css";
-
 const { SubMenu } = Menu;
 
 function BlogMenu() {
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div style={{ width: 256 }} className="menu-container">
       <Button
@@ -31,7 +31,7 @@ function BlogMenu() {
         defaultSelectedKeys={["1"]}
         defaultOpenKeys={["sub1"]}
         mode="inline"
-        theme="dark"
+        theme="light"
         inlineCollapsed={collapsed}
 
         className = {collapsed ? 'nav-disabled' : 'nav-enabled'}
