@@ -34,15 +34,15 @@ export default function Nav() {
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item key="about" icon={<SmileOutlined />}>
-            <Link to="/about">About</Link>
+            <Link to="/about/">About</Link>
           </Menu.Item>
 
           <Menu.Item key="blog" icon={<BookOutlined />}>
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog/">Blog</Link>
           </Menu.Item>
 
           <Menu.Item key="contact" icon={<FormOutlined />}>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact/">Contact</Link>
           </Menu.Item>
         </Menu>
 

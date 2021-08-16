@@ -1,15 +1,26 @@
 import React from "react";
-import {Typography} from 'antd'
-const {Title, Text}  = Typography;
+import "./blog.css";
+
+import { Row, Col, Typography } from "antd";
+import BlogMenu from "./blogNav";
+const { Title, Text } = Typography;
 
 export default function Blog() {
-    // const [posts, setPosts] = useState([]);
-    
-    return (
-        <div>
-            <br/>
-            <Title>Welcome to the blog</Title>
-            <Text>This page is under construction.</Text>
-        </div>
-    )
-}               
+  return (
+    <div className = "blog-container">
+      <Row>
+        <br />
+
+        <Col>
+          <BlogMenu />
+        </Col>
+        <Col span={6} />
+
+        <Col span={10} className="blog-header">
+          <Title>Blog</Title>
+          <Text>I write about JavaScript, Cloud, Open Source, and my experience in the technology sector.</Text>
+        </Col>
+      </Row>
+    </div>
+  );
+}

@@ -1,0 +1,21 @@
+/**
+*
+Menu Styling
+*
+**/
+
+.menu-container {
+    text-align: left !important;
+    position: absolute!important;
+    z-index: 100!important;
+    margin-right: 200px!important;
+}
+
+.nav-disabled {
+    display: none;
+}
+
+.nav-enabled {
+    display: auto;
+    opacity: 90%;
+}
