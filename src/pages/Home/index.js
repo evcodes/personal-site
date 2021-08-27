@@ -1,22 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 //styling
-import { Button, Typography} from "antd";
+import { Button, Typography } from "antd";
 import "./home.css";
+import { AmplifyS3Image } from "@aws-amplify/ui-react";
 const { Title, Paragraph, Text } = Typography;
 
 export default function Home() {
-  // const [formState, setFormState] = useState(initialState);
-  // const [posts, setPosts] = useState([]);
-
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, []);
-
- 
-
   // async function fetchPosts() {
   //   try {
   //     const postData = await API.graphql(graphqlOperation(listPosts));
@@ -42,31 +34,24 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <Title>Eddy Varela</Title>
-
       <div className="landing-text-container">
+        <Title>Eddy Varela</Title>
         <Paragraph className="paragraph-text">
           Hello, and thanks for stopping by! My name is Eddy and I am a
-          <Text code>software engineer</Text>. 
-          Currently, I work for Amazon Web Services (AWS) with the awesome{" "}
-          <a href="https://docs.amplify.aws" target="_blank"  rel="noreferrer">
+          <Text code>software engineer</Text>. Currently, I work for Amazon Web
+          Services (AWS) with the awesome{" "}
+          <a href="https://docs.amplify.aws" target="_blank" rel="noreferrer">
             Amplify team.{" "}
           </a>
           I specialize in web, mobile, and cloud technologies. Please contact me
-          with any questions!
-
-          <br/>
-          <br/>
-
-          This website is still under construction.
+          with any questions!{" "}
         </Paragraph>
 
-<Link to = "/contact">
-      <Button type="primary">
-          Contact me
-        </Button>
+        <Link to="/contact">
+          <Button type="primary">Contact me</Button>
         </Link>
       </div>
+      <AmplifyS3Image imgKey="profile-pic.JPG" />
     </div>
   );
 }

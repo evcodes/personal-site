@@ -5,7 +5,6 @@ import {
   CodeOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  FileTextOutlined,
   CloudOutlined,
   GithubOutlined,
   FormOutlined,
