@@ -1,6 +1,66 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createContactFormEntry = /* GraphQL */ `
+  mutation CreateContactFormEntry(
+    $input: CreateContactFormEntryInput!
+    $condition: ModelContactFormEntryConditionInput
+  ) {
+    createContactFormEntry(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      emailAddress
+      website
+      message
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateContactFormEntry = /* GraphQL */ `
+  mutation UpdateContactFormEntry(
+    $input: UpdateContactFormEntryInput!
+    $condition: ModelContactFormEntryConditionInput
+  ) {
+    updateContactFormEntry(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      emailAddress
+      website
+      message
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteContactFormEntry = /* GraphQL */ `
+  mutation DeleteContactFormEntry(
+    $input: DeleteContactFormEntryInput!
+    $condition: ModelContactFormEntryConditionInput
+  ) {
+    deleteContactFormEntry(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      emailAddress
+      website
+      message
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createPost = /* GraphQL */ `
   mutation CreatePost(
     $input: CreatePostInput!
@@ -11,6 +71,9 @@ export const createPost = /* GraphQL */ `
       category
       title
       body
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -26,6 +89,9 @@ export const updatePost = /* GraphQL */ `
       category
       title
       body
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -41,6 +107,9 @@ export const deletePost = /* GraphQL */ `
       category
       title
       body
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }

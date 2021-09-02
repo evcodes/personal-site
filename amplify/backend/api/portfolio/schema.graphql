@@ -1,6 +1,16 @@
-type Post @model {
+type ContactFormEntry @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  emailAddress: AWSEmail
+  website: AWSURL
+  message: String
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
   id: ID!
   category: String!
   title: String!
   body: String
 }
+ 

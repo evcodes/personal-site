@@ -1,5 +1,14 @@
 .contact-form-container {
-    /* margin-left: 10%!important; */
-    display: flex;
-    flex-direction: column;
+  /* margin-left: 10%!important; */
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  padding: 40px !important;
+}
+
+.contact-form-row {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-direction: row;
+  justify-content: space-between;
 }

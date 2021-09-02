@@ -20,6 +20,13 @@
       },
       "auth": {
         "personalsite2b8ad51b": {}
+      },
+      "function": {
+        "contactForm": {
+          "sesEmail": "eddy@captaincode.cc",
+          "deploymentBucketName": "amplify-personalsite-dev-173548-deployment",
+          "s3Key": "amplify-builds/contactForm-6d72502b6274656e4832-build.zip"
+        }
       }
     }
   }
