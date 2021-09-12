@@ -3,7 +3,7 @@ type ContactFormEntry @model @auth(rules: [{allow: public}]) {
   firstName: String
   lastName: String
   emailAddress: AWSEmail
-  website: AWSURL
+  website: String
   message: String
 }
 

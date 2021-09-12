@@ -12,14 +12,13 @@ export default function Blog() {
   useEffect(() => {
     async function populatePosts() {
       const data = await getBlogPosts();
-      console.log(data);
       setBlogData(data);
     }
     populatePosts();
   }, []);
   return (
     <div className="blog-container">
-      y
+      
       <Row>
         <br />
 
@@ -38,7 +37,9 @@ export default function Blog() {
       </Row>
       {blogData !== []
         ? blogData.map((post) => {
-            return (
+            return post["_deleted"] ? (
+              <div />
+            ) : (
               <p key={post.id}>
                 {" "}
                 {post.title} - {post.body}
