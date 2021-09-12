@@ -19,6 +19,7 @@ export default function Blog() {
   }, []);
   return (
     <div className="blog-container">
+      y
       <Row>
         <br />
 
@@ -35,16 +36,16 @@ export default function Blog() {
           </Text>
         </Col>
       </Row>
-        {blogData !== []
-          ? blogData.map((post) => {
-              return (
-                <p key={post.id}>
-                  {" "}
-                  {post.title} - {post.body}
-                </p>
-              );
-            })
-          : ""}
+      {blogData !== []
+        ? blogData.map((post) => {
+            return (
+              <p key={post.id}>
+                {" "}
+                {post.title} - {post.body}
+              </p>
+            );
+          })
+        : ""}
     </div>
   );
 }
