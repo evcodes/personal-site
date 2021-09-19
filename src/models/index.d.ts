@@ -1,6 +1,14 @@
 import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
 
-
+export enum Category {
+  WEB_DEV = "WEB_DEV",
+  MOBILE_DEV = "MOBILE_DEV",
+  CLOUD = "CLOUD",
+  SERVERLESS = "SERVERLESS",
+  TECH_SECTOR = "TECH_SECTOR",
+  BUSINESS = "BUSINESS",
+  OTHER = "OTHER"
+}
 
 
 
@@ -17,7 +25,7 @@ export declare class ContactFormEntry {
 
 export declare class Post {
   readonly id: string;
-  readonly category: string;
+  readonly category: Category | keyof typeof Category;
   readonly title: string;
   readonly body?: string;
   constructor(init: ModelInit<Post>);

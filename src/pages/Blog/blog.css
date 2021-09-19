@@ -5,3 +5,19 @@
 .blog-header {
     text-align: left!important;
 }
+
+.blog-card-container{
+    width: 68%;
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    /* background-color: red; */
+    justify-content: space-evenly;
+    
+    
+}
+
+.blog-loader{
+    text-align: center!important;
+    margin:auto;
+}

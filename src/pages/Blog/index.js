@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./blog.css";
 
-import { Row, Col, Typography } from "antd";
+import { Row, Col, Typography, Card, Spin } from "antd";
 import BlogMenu from "./blogNav";
 import { getBlogPosts } from "../../components/contentManagment/blogPosts";
 const { Title, Text } = Typography;
 
 export default function Blog() {
   const [blogData, setBlogData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function populatePosts() {
       const data = await getBlogPosts();
+      console.log(data);
       setBlogData(data);
+      setLoading(false);
     }
     populatePosts();
   }, []);
   return (
     <div className="blog-container">
-      
       <Row>
         <br />
-
         <Col>
           <BlogMenu />
         </Col>
@@ -35,18 +36,25 @@ export default function Blog() {
           </Text>
         </Col>
       </Row>
-      {blogData !== []
-        ? blogData.map((post) => {
+
+      <div className="blog-card-container">
+        {loading ? (
+          <Spin className="blog-loader" tip="Loading posts..." />
+        ) : blogData !== [] ? (
+          blogData.map((post) => {
             return post["_deleted"] ? (
-              <div />
+              <div/>
             ) : (
-              <p key={post.id}>
-                {" "}
-                {post.title} - {post.body}
-              </p>
+              <Card id={post.id} title={post.title}>
+                <p>{post.category}</p>
+                <p>{post.summary}</p>
+              </Card>
             );
           })
-        : ""}
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }

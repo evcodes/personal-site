@@ -34,7 +34,7 @@ export const schema = {
                 "website": {
                     "name": "website",
                     "isArray": false,
-                    "type": "AWSURL",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -84,7 +84,9 @@ export const schema = {
                 "category": {
                     "name": "category",
                     "isArray": false,
-                    "type": "String",
+                    "type": {
+                        "enum": "Category"
+                    },
                     "isRequired": true,
                     "attributes": []
                 },
@@ -129,7 +131,20 @@ export const schema = {
             ]
         }
     },
-    "enums": {},
+    "enums": {
+        "Category": {
+            "name": "Category",
+            "values": [
+                "WEB_DEV",
+                "MOBILE_DEV",
+                "CLOUD",
+                "SERVERLESS",
+                "TECH_SECTOR",
+                "BUSINESS",
+                "OTHER"
+            ]
+        }
+    },
     "nonModels": {},
-    "version": "90687fe5280166e4145891c4a47320ed"
+    "version": "c71ef8d1e5aee74f3ac1cf8e5081a0ed"
 };
