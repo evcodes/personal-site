@@ -5,7 +5,8 @@ import "./contact.css";
 import { API } from "aws-amplify";
 import { createContactFormEntry } from "../../graphql/mutations";
 
-const { Title } = Typography;
+const { TextArea } = Input;
+const { Title, Paragraph } = Typography;
 
 /* eslint-disable no-template-curly-in-string */
 const validateMessages = {
@@ -29,7 +30,6 @@ export default function Contact() {
   const [formData, setFormData] = useState(initialFormData);
 
   const handleContactFormSubmit = async () => {
-    console.log(formData);
     await API.graphql({
       query: createContactFormEntry,
       variables: {
@@ -38,19 +38,15 @@ export default function Contact() {
     });
   };
 
-  // function onFinish(values) {
-  //   console.log("Success:", values);
-  // }
-
   return (
     <div>
       <br />
-      <Row>
-        <Col span={6} />
-        <Col span={12}>
+      <Row className="contact-form-container">
+        <Col className="contact-form-header">
           <Title>Contact me</Title>
+        </Col>
+        <Col className="contact-form-input-fields">
           <Form
-            className="contact-form-container"
             name="nest-messages"
             onFinish={handleContactFormSubmit}
             validateMessages={validateMessages}
@@ -80,21 +76,38 @@ export default function Contact() {
                   />
                 </Form.Item>
               </Col>
-              <Col>
-                <Form.Item
-                  name={["user", "email"]}
-                  label="Email Address"
-                  rules={[{ type: "email", required: true }]}
-                >
-                  <Input
-                    onChange={(e) =>
-                      setFormData({ ...formData, emailAddress: e.target.value })
-                    }
-                    value={formData.emailAddress}
-                  />
-                </Form.Item>
-              </Col>
             </Row>
+
+            <Form.Item
+              name={["user", "email"]}
+              label="Email"
+              rules={[{ type: "email", required: true }]}
+            >
+              <Input
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    emailAddress: e.target.value,
+                  })
+                }
+                className="large-input"
+                value={formData.emailAddress}
+              />
+            </Form.Item>
+
+            <Form.Item
+              name={["user", "message"]}
+              label="Message"
+              rules={[{ required: true }]}
+            >
+              <TextArea
+                rows={3}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                value={formData.message}
+              />
+            </Form.Item>
             <Form.Item name={["user", "website"]} label="Website">
               <Input
                 onChange={(e) =>
@@ -103,20 +116,15 @@ export default function Contact() {
                 value={formData.website}
               />
             </Form.Item>
-            <Form.Item
-              name={["user", "message"]}
-              label="Message"
-              rules={[{ required: true }]}
-            >
-              <Input
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                value={formData.message}
-              />
-            </Form.Item>
+            <Paragraph style={{ textAlign: "right" }}>
+              <span style={{ color: "red" }}>*</span> is required
+            </Paragraph>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="contact-form-submit"
+              >
                 Submit
               </Button>
             </Form.Item>
