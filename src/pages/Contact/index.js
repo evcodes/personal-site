@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Typography, Row, Col } from "antd";
+import FormInput from "./input";
 import "./contact.css";
 
 import { API } from "aws-amplify";
@@ -53,50 +54,42 @@ export default function Contact() {
           >
             <Row className="contact-form-row">
               <Col>
-                <Form.Item
-                  name={["user", "name"]}
+                <FormInput
+                  name={["firstName"]}
                   label="First name"
                   rules={[{ required: true }]}
-                >
-                  <Input
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
-                    value={formData.firstName}
-                  />
-                </Form.Item>
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
+                  value={formData.firstName}
+                />
               </Col>
               <Col>
-                <Form.Item name={"name"} label="Last name">
-                  <Input
-                    onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
-                    value={formData.lastName}
-                  />
-                </Form.Item>
+                <FormInput
+                  name={["lastName"]}
+                  label="Last name"
+                  rules={[{ required: true }]}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastNa: e.target.value })
+                  }
+                  value={formData.lastName}
+                />
               </Col>
             </Row>
 
-            <Form.Item
-              name={["user", "email"]}
+            <FormInput
+              className="large-input"
+              name={["email"]}
               label="Email"
-              rules={[{ type: "email", required: true }]}
-            >
-              <Input
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    emailAddress: e.target.value,
-                  })
-                }
-                className="large-input"
-                value={formData.emailAddress}
-              />
-            </Form.Item>
+              rules={[{ required: true }]}
+              onChange={(e) =>
+                setFormData({ ...formData, emailAddress: e.target.value })
+              }
+              value={formData.emailAddress}
+            />
 
             <Form.Item
-              name={["user", "message"]}
+              name={["message"]}
               label="Message"
               rules={[{ required: true }]}
             >
@@ -108,14 +101,15 @@ export default function Contact() {
                 value={formData.message}
               />
             </Form.Item>
-            <Form.Item name={["user", "website"]} label="Website">
-              <Input
-                onChange={(e) =>
-                  setFormData({ ...formData, website: e.target.value })
-                }
-                value={formData.website}
-              />
-            </Form.Item>
+            <FormInput
+              name={["website"]}
+              label="Website"
+              rules={[{ required: false }]}
+              onChange={(e) =>
+                setFormData({ ...formData, website: e.target.value })
+              }
+              value={formData.website}
+            />
             <Paragraph style={{ textAlign: "right" }}>
               <span style={{ color: "red" }}>*</span> is required
             </Paragraph>
