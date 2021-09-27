@@ -44,7 +44,7 @@ export default function Contact() {
       <br />
       <Row className="contact-form-container">
         <Col className="contact-form-header">
-          <Title>Contact me</Title>
+          <Title className="contact-form-header-text">Contact me</Title>
         </Col>
         <Col className="contact-form-input-fields">
           <Form
@@ -55,6 +55,7 @@ export default function Contact() {
             <Row className="contact-form-row">
               <Col>
                 <FormInput
+                  className = "first-name-input"
                   name={["firstName"]}
                   label="First name"
                   rules={[{ required: true }]}
