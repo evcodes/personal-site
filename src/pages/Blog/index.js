@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./blog.css";
+import { useHistory } from "react-router-dom";
 
 import { Row, Col, Typography, Card, Spin } from "antd";
 import BlogMenu from "./blogNav";
 import { getBlogPosts } from "../../components/contentManagment/blogPosts";
+
 const { Title, Text } = Typography;
 
 export default function Blog() {
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
+  let history = useHistory();
 
   useEffect(() => {
     async function populatePosts() {
@@ -19,6 +22,10 @@ export default function Blog() {
     }
     populatePosts();
   }, []);
+
+  function goToBlogDetailPage(blogData) {
+    history.push(`/blog/${blogData.title}`);
+  }
   return (
     <div className="blog-container">
       <Row>
@@ -43,9 +50,15 @@ export default function Blog() {
         ) : blogData !== [] ? (
           blogData.map((post) => {
             return post["_deleted"] ? (
-              <div/>
+              <div />
             ) : (
-              <Card id={post.id} title={post.title}>
+              <Card
+                id={post.id}
+                title={post.title}
+                onClick={() => {
+                  goToBlogDetailPage(post);
+                }}
+              >
                 <p>{post.category}</p>
                 <p>{post.summary}</p>
               </Card>
