@@ -6,19 +6,15 @@ import About from "../../pages/About/";
 import Home from "../../pages/Home/";
 import Contact from "../../pages/Contact/";
 import Blog from "../../pages/Blog/";
-import BlogPost from '../../pages/Blog/blogPost'
 
-export default function RouteSwitcher() {
+export default function RouteSwitcher({ match }) {
+  console.log(match);
   return (
     <Switch className="switch">
       <Route path="/about">
         <About />
       </Route>
       <Route path="/blog">
-        <Blog />
-      </Route>
-
-      <Route path="/blog/:id">
         <Blog />
       </Route>
       <Route path="/contact">

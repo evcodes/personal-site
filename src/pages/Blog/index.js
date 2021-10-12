@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./blog.css";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Row, Col, Typography, Card, Spin } from "antd";
 import BlogMenu from "./blogNav";
 import { getBlogPosts } from "../../components/contentManagment/blogPosts";
 
+import { BlogPost } from "./blogPost";
+
+//routing
+import { useRouteMatch, Switch, Route } from "react-router-dom";
+
 const { Title, Text } = Typography;
 
-export default function Blog() {
+export default function Blog({ match }) {
+  let { path, url } = useRouteMatch();
+
   const [blogData, setBlogData] = useState([]);
   const [loading, setLoading] = useState(true);
-  let history = useHistory();
 
   useEffect(() => {
     async function populatePosts() {
@@ -23,9 +29,6 @@ export default function Blog() {
     populatePosts();
   }, []);
 
-  function goToBlogDetailPage(blogData) {
-    history.push(`/blog/${blogData.title}`);
-  }
   return (
     <div className="blog-container">
       <Row>
@@ -52,22 +55,24 @@ export default function Blog() {
             return post["_deleted"] ? (
               <div />
             ) : (
-              <Card
-                id={post.id}
-                title={post.title}
-                onClick={() => {
-                  goToBlogDetailPage(post);
-                }}
-              >
-                <p>{post.category}</p>
-                <p>{post.summary}</p>
-              </Card>
+              <Link to={`${url}/${post.id}`}>
+                <Card id={post.id} title={post.title}>
+                  <p>{post.category}</p>
+                  <p>{post.summary}</p>
+                </Card>
+              </Link>
             );
           })
         ) : (
           ""
         )}
       </div>
+
+      <Switch>
+        <Route exact path={`${path}/:id`}>
+          <BlogPost />
+        </Route>
+      </Switch>
     </div>
   );
 }
