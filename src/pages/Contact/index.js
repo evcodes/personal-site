@@ -46,36 +46,33 @@ export default function Contact() {
         <Col className="contact-form-header">
           <Title className="contact-form-header-text">Contact me</Title>
         </Col>
-        <Col className="contact-form-input-fields">
+        <Row className="contact-form-input-fields">
           <Form
             name="nest-messages"
             onFinish={handleContactFormSubmit}
             validateMessages={validateMessages}
           >
             <Row className="contact-form-row">
-              <Col>
-                <FormInput
-                  className = "first-name-input"
-                  name={["firstName"]}
-                  label="First name"
-                  rules={[{ required: true }]}
-                  onChange={(e) =>
-                    setFormData({ ...formData, firstName: e.target.value })
-                  }
-                  value={formData.firstName}
-                />
-              </Col>
-              <Col>
-                <FormInput
-                  name={["lastName"]}
-                  label="Last name"
-                  rules={[{ required: true }]}
-                  onChange={(e) =>
-                    setFormData({ ...formData, lastNa: e.target.value })
-                  }
-                  value={formData.lastName}
-                />
-              </Col>
+              <FormInput
+                className="first-name-input"
+                name={["firstName"]}
+                label="First name"
+                rules={[{ required: true }]}
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
+                value={formData.firstName}
+              />
+
+              <FormInput
+                name={["lastName"]}
+                label="Last name"
+                rules={[{ required: true }]}
+                onChange={(e) =>
+                  setFormData({ ...formData, lastNa: e.target.value })
+                }
+                value={formData.lastName}
+              />
             </Row>
 
             <FormInput
@@ -124,8 +121,7 @@ export default function Contact() {
               </Button>
             </Form.Item>
           </Form>
-        </Col>
-        <Col span={6} />
+        </Row>
       </Row>
     </div>
   );

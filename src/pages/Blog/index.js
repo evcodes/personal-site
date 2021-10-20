@@ -22,7 +22,6 @@ export default function Blog({ match }) {
   useEffect(() => {
     async function populatePosts() {
       const data = await getBlogPosts();
-      console.log(data);
       setBlogData(data);
       setLoading(false);
     }

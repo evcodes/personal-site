@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { getSinglePost } from "../../components/contentManagment/blogPosts";
@@ -6,6 +7,7 @@ export function BlogPost(props) {
   let params = useParams();
 
   const [postData, setPostData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPost() {
@@ -13,16 +15,22 @@ export function BlogPost(props) {
       const post = await getSinglePost(params.id);
       console.log(post);
       setPostData(post);
-      // setLoading(false);
+      setLoading(false);
     }
     fetchPost();
   }, []);
   return (
     <div>
-      Title : {postData.title}
-      Author: {postData.author}
-      Category: {postData.category}
-      Body: {postData.body}
+      {loading ? (
+        <Spin className="blog-loader" tip="Loading post..." />
+      ) : (
+        <div>
+          <h1>Title: {postData.title}</h1>
+
+          <h1>Category: {postData.category}</h1>
+          <p>Body: {postData.body}</p>
+        </div>
+      )}
     </div>
   );
 }

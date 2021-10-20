@@ -1,0 +1,36 @@
+.about-container {
+  margin: auto;
+  margin-top: 2rem;
+  /* text-align: left; */
+  width: 60vw;
+  /* background-color: hotpink; */
+}
+
+.about-text-container {
+  background-color: orange;
+}
+
+.about-text-body {
+  text-align: left !important;
+}
+
+.portfolio-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.resources-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+@media only screen and (max-width: 900px) {
+  .about-container {
+    width: 80vw;
+    padding-bottom: 50px;
+  }
+}

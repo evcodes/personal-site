@@ -58,12 +58,7 @@
       }
     }
   },
-  "storage": {
-    "personalSiteStorage": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation"
-    }
-  },
+  "storage": {},
   "function": {
     "contactForm": {
       "build": true,

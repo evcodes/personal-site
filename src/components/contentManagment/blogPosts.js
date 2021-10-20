@@ -19,7 +19,7 @@ export async function getSinglePost(postId) {
     const blogPost = await API.graphql(
       graphqlOperation(getPost, { id: postId })
     );
-    return blogPost.data.getPost
+    return blogPost.data.getPost;
     console.log(blogPost);
   } catch (err) {
     console.log(err);
