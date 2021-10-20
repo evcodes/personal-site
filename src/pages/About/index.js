@@ -45,7 +45,7 @@ export default function About() {
             such as migrating away from older technologies and onto the cloud. I
             have dabbled in web (specifically React), mobile (Android, iOS, and
             React Native), and AWS. For any inqueries check out{" "}
-            <a href="www.captaincode.cc">Captain Code</a>.
+            <a href="http://www.captaincode.cc">Captain Code</a>.
           </Text>
         </div>
 
